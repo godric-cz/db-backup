@@ -15,7 +15,7 @@ class DbBackup {
         $numberOfBackups = 7;
 
     /**
-     * Prepare backup with configuration taken from assoc array $params.
+     * Prepare backup with configuration taken from associative array $params.
      *
      * This method also creates database connection.
      */
