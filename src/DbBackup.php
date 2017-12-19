@@ -29,16 +29,20 @@ class DbBackup {
 
         $this->fileSuffix = $params['sourceDb']['database'] . '.sql.gz';
 
-        $this->ftp = (
-            'ftp://' .
-            $params['targetFtp']['user'] .
-            ':' .
-            $params['targetFtp']['password'] .
-            '@' .
-            $params['targetFtp']['server'] .
-            '/' .
-            $params['targetFtp']['directory']
-        );
+        if(is_array($params['targetFtp'])) {
+            $this->ftp = (
+                'ftp://' .
+                $params['targetFtp']['user'] .
+                ':' .
+                $params['targetFtp']['password'] .
+                '@' .
+                $params['targetFtp']['server'] .
+                '/' .
+                $params['targetFtp']['directory']
+            );
+        } else {
+            $this->ftp = $params['targetFtp'];
+        }
     }
 
     /**
