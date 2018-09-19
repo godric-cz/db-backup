@@ -77,9 +77,12 @@ class DbBackup {
 
     /**
      * Run backup - do actual backup of database to selected FTP.
+     *
+     * Avoid dots and colons in filenames to preserve compatibility in
+     * Windows™.
      */
     function run() {
-        $time = date('Y-m-d_H:i:s');
+        $time = date('Y-m-d_H-i-s');
         $file = $time . '_' . $this->fileSuffix;
 
         $dump = new MySQLDump($this->db);
